@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions Demo</title>
+    <style>
+        /* Style to demonstrate addMouseOverEffect function */
+        .hover-effect {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Toggle Visibility -->
+<button onclick="toggleVisibility('toggleElement')">Toggle Visibility</button>
+<div id="toggleElement">This element can be toggled</div>
+
+<hr>
+
+<!-- Change Text Color -->
+<button onclick="changeTextColor('colorElement', 'blue')">Change Text Color to Blue</button>
+<p id="colorElement">This text color can be changed</p>
+
+<hr>
+
+<!-- Show Alert -->
+<button onclick="showAlert('Hello, this is an alert!')">Show Alert</button>
+
+<hr>
+
+<!-- Toggle Class -->
+<button onclick="toggleClass('toggleClassElement', 'highlight')">Toggle Class</button>
+<p id="toggleClassElement">This element can toggle a class</p>
+
+<hr>
+
+<!-- Update Content -->
+<button onclick="updateContent('contentElement', 'New Content')">Update Content</button>
+<p id="contentElement">This content can be updated</p>
+
+<hr>
+
+<!-- Add Mouse Over Effect -->
+<div id="mouseoverElement" class="hover-effect">
+    Hover over this element to change background color
+</div>
+<script>
+    var mouseoverElement = document.getElementById('mouseoverElement');
+    mouseoverElement.addEventListener('mouseover', function () {
+      mouseoverElement.style.backgroundColor = 'lightgray';
+    });
+    mouseoverElement.addEventListener('mouseout', function () {
+      mouseoverElement.style.backgroundColor = '';
+    });
+</script>
+
+<hr>
+
+<!-- Form Validation -->
+<form onsubmit="return validateForm()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    function toggleVisibility(elementId) {
+        var element = document.getElementById(elementId);
+        element.style.display = (element.style.display === 'none') ? 'block' : 'none';
+    }
+
+    function changeTextColor(elementId, color) {
+        var element = document.getElementById(elementId);
+        element.style.color = color;
+    }
+
+    function showAlert(message) {
+        alert(message);
+    }
+
+    function toggleClass(elementId, className) {
+        var element = document.getElementById(elementId);
+        element.classList.toggle(className);
+    }
+
+    function updateContent(elementId, content) {
+        var element = document.getElementById(elementId);
+        element.innerHTML = content;
+    }
+
+    function validateForm() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+
+        if (name === '' || email === '') {
+            alert('Please fill in all fields');
+            return false;
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>

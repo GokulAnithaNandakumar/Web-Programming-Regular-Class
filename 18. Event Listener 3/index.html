@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change CSS Styles with Event Listener</title>
+    <style>
+        #myElement {
+            display: none;
+            width: 50%;
+            background-color: red;
+            border: 2px solid black;
+            font-size: 2em;
+            color: white;
+            margin: 20px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<button id="myButton">Click to Change CSS Styles</button>
+<div id="myElement">This is a block element</div>
+
+<script>
+    function changeStyles() {
+        var element = document.getElementById("myElement");
+        element.style.display = "block";
+        element.style.width = "75%";
+        element.style.backgroundColor = "blue";
+        element.style.border = "2px solid black";
+        element.style.fontSize = "5em";
+        element.style.color = "white";
+        element.style.margin = "20px";
+        element.style.paddingLeft = "10px";
+        element.style.paddingBottom = "10px";
+    }
+
+    document.getElementById("myButton").addEventListener("click", changeStyles);
+</script>
+
+</body>
+</html>

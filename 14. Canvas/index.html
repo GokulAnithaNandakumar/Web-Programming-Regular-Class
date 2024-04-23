@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas Shapes with Fill Color and Gradient</title>
+<style>
+    canvas {
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="200"></canvas>
+
+<script>
+    var canvas=document.getElementById("myCanvas");
+    var ctx=canvas.getContext("2d");
+
+    ctx.fillStyle="blue";
+    ctx.fillRect(20, 20, 100, 50);
+
+    var gradient=ctx.createRadialGradient(200, 70, 10, 200, 70, 60);
+    gradient.addColorStop(0, "red");
+    gradient.addColorStop(1, "white");
+    ctx.fillStyle=gradient;
+    ctx.beginPath();
+    ctx.arc(200, 70, 50, 0, 2 * Math.PI);
+    ctx.fill();
+
+    var gradient2=ctx.createLinearGradient(300, 150, 350, 200);
+    gradient2.addColorStop(0, "green");
+    gradient2.addColorStop(1, "yellow");
+    ctx.fillStyle=gradient2;
+    ctx.beginPath();
+    ctx.moveTo(300, 150);
+    ctx.lineTo(350, 200);
+    ctx.lineTo(250, 200);
+    ctx.closePath();
+    ctx.fill();
+</script>
+</body>
+</html>
+    

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form</title>
+</head>
+<body>
+
+    <form id="myForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+
+        <label for="regno">Reg. No:</label>
+        <input type="text" id="regno" name="regno" required>
+        <br>
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            var genderFieldset = document.createElement('fieldset');
+            var genderLegend = document.createElement('legend');
+            genderLegend.textContent = 'Gender';
+
+            var maleRadio = createRadioButton('gender', 'Male', 'male');
+            var femaleRadio = createRadioButton('gender', 'Female', 'female');
+
+            genderFieldset.appendChild(genderLegend);
+            genderFieldset.appendChild(maleRadio);
+            genderFieldset.appendChild(femaleRadio);
+
+            var submitButton = document.querySelector('button');
+            this.insertBefore(genderFieldset, submitButton);
+
+            var additionalFieldset = document.createElement('fieldset');
+            var additionalLegend = document.createElement('legend');
+            additionalLegend.textContent = 'Additional Information';
+
+            additionalFieldset.appendChild(additionalLegend);
+
+            this.appendChild(additionalFieldset);
+        });
+
+        function createRadioButton(name, label, value) {
+            var radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = name;
+            radio.id = value;
+            radio.value = value;
+
+            var radioLabel = document.createElement('label');
+            radioLabel.textContent = label;
+            radioLabel.setAttribute('for', value);
+
+            var radioWrapper = document.createElement('div');
+            radioWrapper.appendChild(radio);
+            radioWrapper.appendChild(radioLabel);
+
+            return radioWrapper;
+        }
+    </script>
+
+</body>
+</html>

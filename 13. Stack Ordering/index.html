@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlapping Elements</title>
+    <style>
+        #container {
+            position: relative;
+        }
+
+        .overlap {
+            position: absolute;
+            transition: z-index 0.5s;
+        }
+
+        #pElement {
+            z-index: 1;
+        }
+
+        #imgElement {
+            z-index: 2;
+        }
+
+        #h3Element {
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <p id="pElement" class="overlap">This is a paragraph.</p>
+        <img id="imgElement" class="overlap" src="https://via.placeholder.com/150" alt="Placeholder Image">
+        <h3 id="h3Element" class="overlap">Heading 3</h3>
+    </div>
+
+    <script>
+        const elements = document.querySelectorAll('.overlap');
+
+        elements.forEach(element => {
+            element.addEventListener('mouseover', function () {
+                // Move the element to the front
+                this.style.zIndex = 4;
+            });
+
+            element.addEventListener('mouseout', function () {
+                // Move the element back to its original position
+                this.style.zIndex = this.getAttribute('data-original-index');
+            });
+
+            // Store the original z-index in a data attribute
+            element.setAttribute('data-original-index', element.style.zIndex);
+        });
+    </script>
+
+</body>
+</html>

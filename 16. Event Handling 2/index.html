@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: lightgray;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="box">Click Me to Change Color</div>
+    
+    <div id="div2" class="box">Hover Me to Change Style</div>
+    
+    <div id="div3" class="box">Double Click Me to Insert Image</div>
+
+    <script>
+        function changeColor() {
+            this.style.backgroundColor = "blue";
+        }
+
+        function changeStyle() {
+            this.style.fontSize = "24px";
+            this.style.fontWeight = "bold";
+            this.style.color = "red";
+        }
+
+        function insertImage() {
+            var img = document.createElement("img");
+            img.src = "./image.png";
+            img.style.maxWidth = "100%";
+            img.style.maxHeight = "100%";
+            this.innerHTML = ""; 
+            this.appendChild(img);
+        }
+
+        document.getElementById("div1").addEventListener("click", changeColor);
+        document.getElementById("div2").addEventListener("mouseover", changeStyle);
+        document.getElementById("div3").addEventListener("dblclick", insertImage);
+    </script>
+</body>
+</html>

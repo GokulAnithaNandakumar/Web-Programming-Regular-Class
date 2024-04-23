@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Handling Example</title>
+</head>
+<body>
+
+<h2>Login Form</h2>
+<form id="loginForm">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+  document.getElementById("username").addEventListener("focus", function() {
+    console.log("Focus event on username field");
+  });
+
+  document.getElementById("password").addEventListener("focus", function() {
+    console.log("Focus event on password field");
+  });
+
+  document.getElementById("username").addEventListener("blur", function() {
+    console.log("Blur event on username field");
+  });
+
+  document.getElementById("password").addEventListener("blur", function() {
+    console.log("Blur event on password field");
+  });
+
+  document.getElementById("username").addEventListener("input", function() {
+    console.log("Input event on username field, value: " + this.value);
+  });
+
+  document.getElementById("password").addEventListener("input", function() {
+    console.log("Input event on password field, value: " + this.value);
+  });
+
+  document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    console.log("Form submitted");
+  });
+</script>
+
+</body>
+</html>
